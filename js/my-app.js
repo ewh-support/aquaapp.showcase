@@ -18,6 +18,22 @@ myApp.onPageInit('about', function (page) {
     });
 });
 
+myApp.onPageInit('calculator', function (page) {
+    console.log('Go To Calculator')
+});
+$$('.ac-1').on('click', function () {
+    var buttons = [
+        {
+            text: 'Button1',
+            bold: true
+        },
+        {
+            text: 'Button2'
+        }
+    ];
+    myApp.actions(buttons);
+});
+
 // Generate dynamic page
 var dynamicPageIndex = 0;
 function createContentPage() {

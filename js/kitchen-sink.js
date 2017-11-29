@@ -492,6 +492,17 @@ $$('.login-screen').find('.list-button').on('click', function () {
         myApp.closeModal('.login-screen');
     });
 });
+myApp.onPageInit('calculator', function (page) {
+    console.log('Go to Bang Tinh')
+});
+$$('.calculating').on('click', function () {
+    console.log('Tính Toán')
+    // var username = $$('.login-screen').find('input[name="username"]').val();
+    // var password = $$('.login-screen').find('input[name="password"]').val();
+    myApp.alert('Username: ' + username + ', password: ' + password, function () {
+        myApp.closeModal('.login-screen');
+    });
+});
 
 /* ===== Demo Popover ===== */
 $$('.popover a').on('click', function () {
