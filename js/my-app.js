@@ -30,19 +30,20 @@ $$('.ac-1').on('click', function () {
     var ngaynuoi =  $$('#ngaynuoi').val();
     var param3 =  $$('#luongchoan').val();
     var sum = luonggiongtha * ngaynuoi + param3 ;
-    var buttons = [
-        {
-            text: luonggiongtha,
-            bold: true
-        },
-        {
-            text: ngaynuoi,
-            bold: true
-        },
-        {
-            text: sum
-        }
-    ];
+    $$('#ketqua').val(sum)
+    // var buttons = [
+    //     {
+    //         text: luonggiongtha,
+    //         bold: true
+    //     },
+    //     {
+    //         text: ngaynuoi,
+    //         bold: true
+    //     },
+    //     {
+    //         text: sum
+    //     }
+    // ];
     myApp.actions(buttons);
 });
 $$('.ac-2').on('click', function () {
