@@ -6,6 +6,7 @@ var $$ = Dom7;
 
 // Add view
 var mainView = myApp.addView('.view-main', {
+    domCache: true, //enable inline pages    
     // Because we use fixed-through navbar we can enable dynamic navbar
     dynamicNavbar: true
 });
@@ -22,6 +23,29 @@ myApp.onPageInit('calculator', function (page) {
     console.log('Go To Calculator')
 });
 $$('.ac-1').on('click', function () {
+    var trongluongmap = [ 
+
+    ]
+    var luonggiongtha =  $$('#luonggiongtha').val();
+    var ngaynuoi =  $$('#ngaynuoi').val();
+    var param3 =  $$('#luongchoan').val();
+    var sum = luonggiongtha * ngaynuoi + param3 ;
+    var buttons = [
+        {
+            text: luonggiongtha,
+            bold: true
+        },
+        {
+            text: ngaynuoi,
+            bold: true
+        },
+        {
+            text: sum
+        }
+    ];
+    myApp.actions(buttons);
+});
+$$('.ac-2').on('click', function () {
     var buttons = [
         {
             text: 'Button1',
