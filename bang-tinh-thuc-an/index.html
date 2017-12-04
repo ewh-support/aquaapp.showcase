@@ -14,6 +14,12 @@
         </div>
     </div>
 </div>
+var myApp = new Framework7();          
+ 
+//Now we add our callback for initial page
+myApp.onPageInit('home', function (page) {
+  //Do something here with home page
+}).trigger(); //And trigger it right away
 <div class="pages navbar-through">
     <div data-page="calculator" class="page">
         <div class="page-content">
