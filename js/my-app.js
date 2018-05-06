@@ -118,64 +118,95 @@ $$('.ac-2').on('click', function () {
 
 
 $$('.tinh-toan-tia').on('click', function () {
+    $$('#matdo').val(matdo()); 
+}); 
+function matdo() {
     var luongtha = $$('#luongtha').val();
     var tilesong = $$('#tilesong').val();
     var thetichnuocao = $$('#thetichnuocao').val();
     console.log('nhập vào', luongtha, tilesong, thetichnuocao)
     var matdo = luongtha * tilesong / 100 / thetichnuocao ; 
     console.log('Tính toán Tỉa, mật độ', matdo);
-    $$('#matdo').val(matdo); 
-}); 
-
+    return matdo; 
+}
 $$('.tia-lan-1').on('click', function () {
     console.log('Tỉa Lần 1');
+    
+    $$('#luonggiongcon01').val(luonggiongcon01());
+    $$('#sanluongcon01').val(sanluongcon01()); 
+    $$('#matdo01').val(matdo01()) ;
+});
+
+function luonggiongcon01() {
     var luongtha = $$('#luongtha').val();
     var tilesong = $$('#tilesong').val();
     var thetichnuocao = $$('#thetichnuocao').val();
     var luongtia01 = $$('#luongtia01').val();
     var cotom01 = $$('#cotom01').val();
-    console.log('Cỡ tôm', cotom01);
-    var luongiongcon01 = luongtha * (tilesong / 100 ) - ( luongtia01 * cotom01 );
-    console.log('Lượng giống còn', luongiongcon01);
-    
-    $$('#luonggiongcon01').val(luongtha * (tilesong / 100 ) - ( luongtia01 * cotom01 ));
-    // $$('#luonggiongcon01').val(luongiongcon01); //Bao: ko có tác dụng 
-    
-    var sanluongcon01 = luonggiongcon01 / cotom01 ; 
-    $$('#sanluongcon01').val( (luongtha * (tilesong / 100 ) - ( luongtia01 * cotom01 )) / cotom01); 
-    // console.log('eval sanluongcon01', eval(sanluongcon01));
+    return luongtha * (tilesong / 100 ) - ( luongtia01 * cotom01 );
+}
 
-    var matdo01 = luonggiongcon01 / thetichnuocao ; 
-    $$('#matdo01').val((luongtha * (tilesong / 100 ) - ( luongtia01 * cotom01 )) / thetichnuocao) ;
-    console.log('Mật độ', matdo01);
-});
+function sanluongcon01() {
+    return  luonggiongcon01() / $$('#cotom01').val();
+}
+
+function matdo01() {
+    return luonggiongcon01() / $$('#thetichnuocao').val();
+}
 
 $$('.tia-lan-2').on('click', function () {
-    var luongtia02 = $$( '#luongtia02').val();
-    var cotom02 = $$( '#cotom02').val();
-    var luongiongcon02 =luonggiongcon01-(luongtia02*cotom2);
-    $$('#luonggiongcon02').val(luonggiongcon02)
-    var sanluongcon02 =  luonggiongcon01 / cotom02-luongtia02 ; 
-    $$('#sanluongcon02').val(sanluongcon02); 
-    var matdo02 = luonggiongcon02 / thetichnuocao ; 
-    $$('#matdo02').val(matdo02) ;
-    console.log('Tỉa Lần 2, mật độ', matdo02);
+    console.log('Tỉa Lần 2');
+    
+    $$('#luonggiongcon02').val(luonggiongcon02());
+
+    $$('#sanluongcon02').val(sanluongcon02()); 
+    
+    $$('#matdo02').val(matdo02()) ;
 });
 
+function luonggiongcon02() {
+    return luonggiongcon01() - ( $$('#luongtia02').val() * $$('#cotom02').val() );
+}
 
+function sanluongcon02() {
+    return  luonggiongcon01() / $$('#cotom02').val() - $$('#luongtia02').val() ; 
+}
+
+function matdo02() {
+    return luonggiongcon02() - $$('#luongtia02').val();
+}
 $$('.tia-lan-3').on('click', function () {
 
-    var luongtia03 = $$( '#luongtia03').val();
-    var cotom03 = $$( '#cotom03').val();
-    var luongiongcon03 =luonggiongcon02-(luongtia03*cotom03);$$('#luonggiongcon03').val(luonggiongcon03)
-    var sanluongcon03 =  luonggiongcon02 / cotom03-luongtia03 ;$$('#sanluongcon03').val(sanluongcon03); 
-    var matdo03 = luonggiongcon03 / thetichnuocao ;  $$('#matdo03').val(matdo03) ;
-    var tongdot01 = luongtha * tilesong / 100 / cotom01; 
-    $$('#tongdot01').val(tongdot01) ;
-    var tongdot02 = luonggiongcon01/cotom02+luongtia01; 
-    $$('#tongdot02').val(tongdot02) ;  
-    console.log('Tỉa Lần 3, tổng đợt', tongdot01, tongdot02);
+    console.log('Tỉa lần 3')
+
+    $$('#luonggiongcon03').val(luonggiongcon03())
+    $$('#sanluongcon03').val(sanluongcon03()); 
+    $$('#matdo03').val(matdo03()) ;
+    $$('#tongdot01').val(tongdot01()) ;
+    $$('#tongdot02').val(tongdot02()) ;  
+
 });
+function luonggiongcon03() {
+    var luongtia03 = $$('#luongtia03').val();
+    var cotom03 = $$('#cotom03').val();
+    return luonggiongcon02() - ( luongtia03  * cotom03 );
+}
+function sanluongcon03() {
+    var luongtia03 = $$('#luongtia03').val();
+    var cotom03 = $$('#cotom03').val();
+    return luonggiongcon02() / cotom03-luongtia03 ;
+}
+
+function matdo03() {
+    return luonggiongcon03() / $$('#thetichnuocao').val();    
+}
+
+function tongdot01() {
+    return $$('#luongtha').val() * $$('#tilesong').val() / 100 / $$('#cotom01').val(); 
+}
+function tongdot02() {
+    return luonggiongcon01() / $$('#cotom02').val() + $$('#luongtia01').val()
+}
 // Generate dynamic page
 var dynamicPageIndex = 0;
 function createContentPage() {
