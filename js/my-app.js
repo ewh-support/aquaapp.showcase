@@ -99,8 +99,8 @@ $$('.ac-1').on('click', function () {
     $$('#tiLeBoNha').val(tiLeBoNha)
     $$('#luongBoNha').val(luongBoNha)
     $$('#thoiGianKiemTra').val(thoiGianKiemTra)
-    $$('#tiLeSong').val(Math.round(tiLeSong))
-    $$('#sanLuong').val(Math.round(sanLuong))
+    $$('#tiLeSong').val((Math.round(tiLeSong)).toFixed(2))
+    $$('#sanLuong').val(Math.round(sanLuong)).toFixed(2)
  
 });
 $$('.ac-2').on('click', function () {
