@@ -99,8 +99,8 @@ $$('.ac-1').on('click', function () {
     $$('#tiLeBoNha').val(tiLeBoNha)
     $$('#luongBoNha').val(luongBoNha)
     $$('#thoiGianKiemTra').val(thoiGianKiemTra)
-    $$('#tiLeSong').val((Math.round(tiLeSong)).toFixed(2))
-    $$('#sanLuong').val(Math.round(sanLuong)).toFixed(2)
+    $$('#tiLeSong').val(Math.round(tiLeSong))
+    $$('#sanLuong').val(Math.round(sanLuong))
  
 });
 $$('.ac-2').on('click', function () {
@@ -173,7 +173,7 @@ function sanluongcon02() {
 }
 
 function matdo02() {
-    return luonggiongcon02() - $$('#luongtia02').val();
+    return luonggiongcon02() / $$('#thetichnuocao').val();
 }
 $$('.tia-lan-3').on('click', function () {
 
@@ -184,6 +184,7 @@ $$('.tia-lan-3').on('click', function () {
     $$('#matdo03').val(matdo03()) ;
     $$('#tongdot01').val(tongdot01()) ;
     $$('#tongdot02').val(tongdot02()) ;  
+    $$('#tongthu').val(tongthu()) ;  
 
 });
 function luonggiongcon03() {
@@ -205,7 +206,10 @@ function tongdot01() {
     return $$('#luongtha').val() * $$('#tilesong').val() / 100 / $$('#cotom01').val(); 
 }
 function tongdot02() {
-    return luonggiongcon01() / $$('#cotom02').val() + $$('#luongtia01').val()
+    return $$('#luonggiongcon01').val() / $$('#cotom02').val() + (1*$$('#luongtia01').val());
+}
+function tongthu() {
+    return (1*$$('#luongtia01').val()) + (1*$$('#luongtia02').val()) + (1*$$('#luongtia03').val()) + (1*$$('#sanluongcon03').val());
 }
 // Generate dynamic page
 var dynamicPageIndex = 0;

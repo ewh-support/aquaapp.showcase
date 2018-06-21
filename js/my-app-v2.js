@@ -127,7 +127,6 @@ function matdo() {
     console.log('nhập vào', luongtha, tilesong, thetichnuocao)
     var matdo = luongtha * tilesong / 100 / thetichnuocao ; 
     console.log('Tính toán Tỉa, mật độ', matdo);
-    number.toPrecision(1);
     return matdo; 
 }
 $$('.tia-lan-1').on('click', function () {
@@ -174,7 +173,7 @@ function sanluongcon02() {
 }
 
 function matdo02() {
-    return luonggiongcon02() - $$('#luongtia02').val();
+    return luonggiongcon02() / $$('#thetichnuocao').val();
 }
 $$('.tia-lan-3').on('click', function () {
 
@@ -209,7 +208,6 @@ function tongdot02() {
     return luonggiongcon01() / $$('#cotom02').val() + $$('#luongtia01').val()
 }
 // Generate dynamic page
-
 var dynamicPageIndex = 0;
 function createContentPage() {
     mainView.router.loadContent(
